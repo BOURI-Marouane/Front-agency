@@ -1,0 +1,29 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="https://i.pinimg.com/originals/70/9d/ea/709deae7952edce062602476a3378b39.png" height="150" id="icon" alt="User Icon" />
+      </div>
+  
+      <!-- Login Form -->
+      <form>
+        <input type="text" [(ngModel)] = "myAgency.name" id="login" class="fadeIn second" name="login" placeholder="Nom de l'agence">
+        <input type="text" [(ngModel)] = "myAgency.adress" id="password" class="fadeIn third" name="login" placeholder="Adresse">
+        <label><input type="checkbox" [(ngModel)] = "myAgency.status" name="cb-html5" checked> Active</label><br>
+        <input type="submit" (click)="persisteTask()" class="fadeIn fourth" value="+ Ajouter une agence">
+        
+      </form>
+    
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <mat-dialog-actions>
+            <button (click)="getAgency()" class="underlineHover" mat-button mat-dialog-close>Close</button>
+         </mat-dialog-actions>
+      </div>
+    </div>
+  </div>
+  
+  
+  
