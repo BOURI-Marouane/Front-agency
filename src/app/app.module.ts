@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AgencyComponent } from 'src/modules/agency/agency.component';
@@ -8,14 +8,22 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import { AgencyAddComponent } from './agency-add/agency-add.component';
+import { AgencyAddComponent } from 'src/modules/agency-add/agency-add.component';
+import { AgencyFussioneComponent } from 'src/modules/agency-fussione/agency-fussione.component';
+import { KeycloakSecurityService } from 'src/service_keycloak/keycloak-security.service';
+
+export function kcFactory(kcSecurity:KeycloakSecurityService)
+{
+    return ()=> kcSecurity.init();
+}
 
 @NgModule({
   declarations: [
     AppComponent,
     AgencyComponent,
     NavbarComponent,
-    AgencyAddComponent
+    AgencyAddComponent,
+    AgencyFussioneComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +33,9 @@ import { AgencyAddComponent } from './agency-add/agency-add.component';
     BrowserAnimationsModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [{
+    provide:APP_INITIALIZER,deps:[KeycloakSecurityService],useFactory:kcFactory,multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

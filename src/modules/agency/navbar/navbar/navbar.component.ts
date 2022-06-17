@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { KeycloakSecurityService } from 'src/service_keycloak/keycloak-security.service';
 
 
 @Component({
@@ -10,9 +11,14 @@ export class NavbarComponent implements OnInit {
 
   
 
-  constructor() { }
+  constructor(public securityService:KeycloakSecurityService) { }
 
   ngOnInit(): void {
+  }
+
+  onLogout()
+  {
+    this.securityService.kc.logout();
   }
 
 }

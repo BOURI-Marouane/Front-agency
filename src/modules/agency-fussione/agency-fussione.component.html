@@ -1,0 +1,32 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="https://i.pinimg.com/originals/70/9d/ea/709deae7952edce062602476a3378b39.png" height="150" id="icon" alt="User Icon" />
+      </div>
+  
+      <!-- Login Form -->
+      <form>
+        <h3>Agency Name : {{myAgency.name}}</h3>
+        <label for="orders">Agency Merged : </label>
+            <select [(ngModel)]="agencyFussione.code_B">
+               <option *ngFor="let agency of agencys" [value]="agency.code">
+               {{agency.name}}
+               </option>
+             </select>
+      
+        <input type="submit"  class="fadeIn fourth" value="Fussione">
+      </form>
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <mat-dialog-actions>    
+            <button  class="underlineHover" mat-button mat-dialog-close>Close</button>
+         </mat-dialog-actions>
+      </div>
+    </div>
+  </div>
+  
+  
+  

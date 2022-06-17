@@ -18,7 +18,7 @@ export class AgencyAddComponent implements OnInit {
     name:'',
     adress:'',
     status:false
-  }
+  }    
 
   agencys : Agency[] = [];
   constructor(private agencyService: AgencyService,private agencyComponent:AgencyComponent,
@@ -64,16 +64,11 @@ export class AgencyAddComponent implements OnInit {
       status:false
     }
   }
-
   updateTask()
   {
     this.agencyService.update([this.myAgency])
     .subscribe(() => {
         this.resetTask();
-   
     })
   }
-
- 
-
 }
