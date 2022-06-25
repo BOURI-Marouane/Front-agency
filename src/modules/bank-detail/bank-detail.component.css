@@ -1,0 +1,31 @@
+.bank-detail{
+    background-image: url("../../assets/background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    border: solid;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: #0175AE;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 25px;
+    height: 100%;  
+    margin: auto 25px;
+}
+
+.bank-detail h3{
+    color: white;
+}
+
+.bank-detail p{
+    color: white;
+    text-align: justify;
+    font-size: 1vw;
+}
+.separator {
+    border-left: 3px solid white;
+    height: 400px;
+}
+
+.bank-info img{
+    margin: auto;
+}

@@ -1,3 +1,4 @@
+import { state } from '@angular/animations';
 import { Injectable } from '@angular/core';
 import Keycloak from "keycloak-js"
 
@@ -19,9 +20,9 @@ export class KeycloakSecurityService {
        clientId:"AngularAgency"
    });
    await this.kc.init({
-    onLoad:'login-required',
-     //onLoad:'check-sso',
-     silentCheckSsoRedirectUri:window.location.origin
+    //onLoad:'login-required',
+     onLoad:'check-sso',
+    
      //promiseType:'
      //onLoad:'check-sso',
  

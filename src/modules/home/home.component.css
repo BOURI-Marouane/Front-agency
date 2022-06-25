@@ -1,0 +1,25 @@
+.home{
+    background-image: url("../../assets/background3.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    padding: 8%;
+    
+}
+
+.divider{
+    height: 50px;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+@media (max-width: 768px){
+    .container{
+        display: grid;
+        grid-template-columns: auto;
+    }
+}
