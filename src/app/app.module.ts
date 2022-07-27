@@ -16,14 +16,15 @@ import { BankDetailComponent } from 'src/modules/bank-detail/bank-detail.compone
 import { HomeComponent } from 'src/modules/home/home.component';
 import { LoginComponent } from 'src/modules/login/login.component';
 import { Routes,RouterModule } from '@angular/router';
-
-export function kcFactory(kcSecurity:KeycloakSecurityService)
-{
-    return ()=> kcSecurity.init();
-}
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import { initializeKeycloak } from 'src/utility/app.init';
+import { AuthGuard } from 'src/utility/app.guard';
 
 const routes: Routes = [
-  { path: 'agency', component: AgencyComponent }
+  
+  {  path:'agency',component:AgencyComponent,canActivate : [AuthGuard]
+  },
+  {path:'',component:HomeComponent}
 ];
 
 @NgModule({
@@ -45,11 +46,12 @@ const routes: Routes = [
     BrowserAnimationsModule,
     MatDialogModule,
     NgbModule,
+    KeycloakAngularModule,
     RouterModule.forRoot(routes)
   ],
   exports:[RouterModule],
   providers: [{
-    provide:APP_INITIALIZER,deps:[KeycloakSecurityService],useFactory:kcFactory,multi:true
+    provide:APP_INITIALIZER,deps:[KeycloakService],useFactory:initializeKeycloak,multi:true
   }],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { KeycloakSecurityService } from 'src/service_keycloak/keycloak-security.service';
+import { KeycloakService } from 'keycloak-angular';
 
 
 @Component({
@@ -11,23 +12,23 @@ export class NavbarComponent implements OnInit {
 
   
 
-  constructor(public securityService:KeycloakSecurityService) { }
+  constructor(public securityService:KeycloakService) { }
 
   ngOnInit(): void {
   }
 
   onLogout()
   {
-    this.securityService.kc.logout();
+    this.securityService.logout();
   }
 
   onLogin()
   {
-    this.securityService.kc.login();
+    this.securityService.login();
   }
 
   onChangePassword()
   {
-    this.securityService.kc.accountManagement();
+    //this.securityService.getUsername();
   }
 }

@@ -6,10 +6,10 @@
       
 
         <ul class="navbar-nav ml-auto">
-          <li class="nav-link" *ngIf="securityService.kc.authenticated">
+          <li class="nav-link">
               <div ngbDropdown class="dropdown" >
                 <button ngbDropdownToggle class="btn btn-primary" type="button" id="dropdownMenuButton1" aria-expanded="false">
-                  {{securityService.kc.tokenParsed?.name}}
+                  {{securityService.getUsername()}}
                   <i class="bi bi-person-fill"></i>
               </button>
                 <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
@@ -19,9 +19,9 @@
                 </ul>
               </div>
            </li>
-           <li class="nav-item" *ngIf="!securityService.kc.authenticated">
+           <!-- <li class="nav-item">
              <a type="button" class="text-white" (click)="onLogin()" >Login</a>
-           </li>
+           </li> -->
         </ul>
       </div> 
 </nav>
