@@ -22,7 +22,7 @@ import { AuthGuard } from 'src/utility/app.guard';
 
 const routes: Routes = [
   
-  {  path:'agency',component:AgencyComponent,canActivate : [AuthGuard]
+  {path:'agency',component:AgencyComponent,canActivate : [AuthGuard]
   },
   {path:'',component:HomeComponent}
 ];
